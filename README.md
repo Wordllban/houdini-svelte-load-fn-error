@@ -1,38 +1,38 @@
-# sv
+# Reproduce error with Houdini and Svelte load function
 
-Everything you need to build a Svelte project, powered by [`sv`](https://github.com/sveltejs/cli).
+## Start the project
 
-## Creating a project
-
-If you're seeing this, you've probably already done this step. Congrats!
+Get `pnpm`
 
 ```bash
-# create a new project in the current directory
-npx sv create
-
-# create a new project in my-app
-npx sv create my-app
+npm install --global pnpm
 ```
 
-## Developing
-
-Once you've created a project and installed dependencies with `npm install` (or `pnpm install` or `yarn`), start a development server:
+Install dependencies
 
 ```bash
-npm run dev
-
-# or start the server and open the app in a new browser tab
-npm run dev -- --open
+pnpm install
 ```
 
-## Building
-
-To create a production version of your app:
+Start command
 
 ```bash
-npm run build
+pnpm dev
 ```
 
-You can preview the production build with `npm run preview`.
+## Steps to reproduce
 
-> To deploy your app, you may need to install an [adapter](https://svelte.dev/docs/kit/adapters) for your target environment.
+Once you started the project, you should see the following error:
+
+```
+[33mMultiple exports with the same name "load"[39m
+11 |  }
+12 |
+13 |  export const load = exampleLoadFunc();
+   |               ^
+
+[33mThe symbol "load" has already been declared[39m
+11 |  }
+12 |
+13 |  export const load = exampleLoadFunc();
+```
